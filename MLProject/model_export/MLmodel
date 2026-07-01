@@ -1,0 +1,39 @@
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.skops
+    predict_fn: predict
+    python_version: 3.12.3
+  sklearn:
+    code: null
+    pickled_model: model.skops
+    serialization_format: skops
+    sklearn_version: 1.9.0
+    skops_trusted_types: null
+is_signature_from_type_hint: false
+mlflow_version: 3.14.0
+model_id: null
+model_size_bytes: 7019524
+model_uuid: 5b7f42a7427f47f1aaf677f6bb1b5b45
+prompts: null
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "credit_score", "required": true}, {"type":
+    "double", "name": "country", "required": true}, {"type": "double", "name": "gender",
+    "required": true}, {"type": "double", "name": "age", "required": true}, {"type":
+    "double", "name": "tenure", "required": true}, {"type": "double", "name": "balance",
+    "required": true}, {"type": "double", "name": "products_number", "required": true},
+    {"type": "double", "name": "credit_card", "required": true}, {"type": "double",
+    "name": "active_member", "required": true}, {"type": "double", "name": "estimated_salary",
+    "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-06-25 22:43:48.644523'

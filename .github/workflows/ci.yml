@@ -1,0 +1,57 @@
+name: MLflow Project CI
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  train-model:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12.7
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.7"
+
+      - name: Check environment
+        run: |
+          python --version
+          pip --version
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r MLProject/requirements.txt
+
+      - name: Run MLflow Project
+        run: |
+          cd MLProject
+          mlflow run . --env-manager=local
+
+      - name: Show training outputs
+        run: |
+          cd MLProject
+          echo "Run ID:"
+          cat run_id.txt
+          echo "Model URI:"
+          cat model_uri.txt
+          ls -al
+          ls -al artifacts
+          ls -al model_export
+
+      - name: Upload MLflow artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: mlflow-training-artifacts
+          path: |
+            MLProject/mlruns
+            MLProject/artifacts
+            MLProject/model_export
+            MLProject/run_id.txt
+            MLProject/model_uri.txt

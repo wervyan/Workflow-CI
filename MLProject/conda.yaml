@@ -1,0 +1,14 @@
+name: bank-churn-mlflow-project
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12.7
+  - pip
+  - pip:
+      - mlflow==2.19.0
+      - scikit-learn==1.6.0
+      - pandas
+      - numpy
+      - matplotlib
+      - seaborn
+      - joblib

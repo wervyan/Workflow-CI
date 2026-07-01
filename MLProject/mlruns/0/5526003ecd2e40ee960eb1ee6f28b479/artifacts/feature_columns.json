@@ -1,0 +1,12 @@
+[
+    "credit_score",
+    "country",
+    "gender",
+    "age",
+    "tenure",
+    "balance",
+    "products_number",
+    "credit_card",
+    "active_member",
+    "estimated_salary"
+]
