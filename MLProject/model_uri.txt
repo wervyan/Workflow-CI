@@ -1,1 +1,0 @@
-/home/wervyan/Downloads/submit_to_dicoding/Workflow-CI/MLProject/model_export
